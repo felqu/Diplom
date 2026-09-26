@@ -1,0 +1,1 @@
+"""reporting-notification-service package."""

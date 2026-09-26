@@ -6,46 +6,31 @@ services:
     ports:
       - "8000:8000"
     environment:
-      IDENTITY_SERVICE_URL: http://identity-service:8000
-      TESTING_SERVICE_URL: http://testing-service:8000
+      IDENTITY_ORGANIZATION_SERVICE_URL: http://identity-organization-service:8000
+      ASSESSMENT_TESTING_SERVICE_URL: http://assessment-testing-service:8000
     depends_on:
-      - identity-service
-      - testing-service
+      - identity-organization-service
+      - assessment-testing-service
 
-  identity-service:
-    build: ./services/identity-service
+  identity-organization-service:
+    build: ./services/identity-organization-service
     environment:
-      SERVICE_NAME: identity-service
+      SERVICE_NAME: identity-organization-service
 
-  testing-service:
-    build: ./services/testing-service
+  assessment-testing-service:
+    build: ./services/assessment-testing-service
     environment:
-      SERVICE_NAME: testing-service
-
-  organization-service:
-    build: ./services/organization-service
-    environment:
-      SERVICE_NAME: organization-service
+      SERVICE_NAME: assessment-testing-service
 
   learning-service:
     build: ./services/learning-service
     environment:
       SERVICE_NAME: learning-service
 
-  knowledge-base-service:
-    build: ./services/knowledge-base-service
+  knowledge-ai-service:
+    build: ./services/knowledge-ai-service
     environment:
-      SERVICE_NAME: knowledge-base-service
-
-  ai-generation-service:
-    build: ./services/ai-generation-service
-    environment:
-      SERVICE_NAME: ai-generation-service
-
-  assessment-service:
-    build: ./services/assessment-service
-    environment:
-      SERVICE_NAME: assessment-service
+      SERVICE_NAME: knowledge-ai-service
 
   proctoring-service:
     build: ./services/proctoring-service
@@ -62,15 +47,10 @@ services:
     environment:
       SERVICE_NAME: analytics-service
 
-  reporting-service:
-    build: ./services/reporting-service
+  reporting-notification-service:
+    build: ./services/reporting-notification-service
     environment:
-      SERVICE_NAME: reporting-service
-
-  notification-service:
-    build: ./services/notification-service
-    environment:
-      SERVICE_NAME: notification-service
+      SERVICE_NAME: reporting-notification-service
 
   message-broker:
     image: rabbitmq:3-management-alpine

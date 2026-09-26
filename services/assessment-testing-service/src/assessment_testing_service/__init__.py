@@ -1,0 +1,1 @@
+"""assessment-testing-service package."""
