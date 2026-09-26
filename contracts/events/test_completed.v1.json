@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TestCompleted v1",
+  "type": "object",
+  "required": ["event_id", "occurred_at", "attempt_id", "employee_id", "test_id", "score", "passed"],
+  "properties": {
+    "event_id": { "type": "string", "format": "uuid" },
+    "occurred_at": { "type": "string", "format": "date-time" },
+    "attempt_id": { "type": "string", "format": "uuid" },
+    "employee_id": { "type": "string", "format": "uuid" },
+    "test_id": { "type": "string", "format": "uuid" },
+    "score": { "type": "number", "minimum": 0 },
+    "passed": { "type": "boolean" }
+  },
+  "additionalProperties": false
+}

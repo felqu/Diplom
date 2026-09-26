@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ProctoringViolation v1",
+  "type": "object",
+  "required": ["event_id", "occurred_at", "attempt_id", "type", "severity"],
+  "properties": {
+    "event_id": { "type": "string", "format": "uuid" },
+    "occurred_at": { "type": "string", "format": "date-time" },
+    "attempt_id": { "type": "string", "format": "uuid" },
+    "type": { "type": "string", "enum": ["tab_switch", "window_blur", "copy", "paste", "inactivity"] },
+    "severity": { "type": "string", "enum": ["low", "medium", "high"] }
+  },
+  "additionalProperties": false
+}

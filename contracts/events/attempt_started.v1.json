@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AttemptStarted v1",
+  "type": "object",
+  "required": ["event_id", "occurred_at", "attempt_id", "assignment_id", "employee_id"],
+  "properties": {
+    "event_id": { "type": "string", "format": "uuid" },
+    "occurred_at": { "type": "string", "format": "date-time" },
+    "attempt_id": { "type": "string", "format": "uuid" },
+    "assignment_id": { "type": "string", "format": "uuid" },
+    "employee_id": { "type": "string", "format": "uuid" }
+  },
+  "additionalProperties": false
+}

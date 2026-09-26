@@ -1,0 +1,89 @@
+name: learning-platform
+
+services:
+  api-gateway:
+    build: ./apps/api-gateway
+    ports:
+      - "8000:8000"
+    environment:
+      IDENTITY_SERVICE_URL: http://identity-service:8000
+      TESTING_SERVICE_URL: http://testing-service:8000
+    depends_on:
+      - identity-service
+      - testing-service
+
+  identity-service:
+    build: ./services/identity-service
+    environment:
+      SERVICE_NAME: identity-service
+
+  testing-service:
+    build: ./services/testing-service
+    environment:
+      SERVICE_NAME: testing-service
+
+  organization-service:
+    build: ./services/organization-service
+    environment:
+      SERVICE_NAME: organization-service
+
+  learning-service:
+    build: ./services/learning-service
+    environment:
+      SERVICE_NAME: learning-service
+
+  knowledge-base-service:
+    build: ./services/knowledge-base-service
+    environment:
+      SERVICE_NAME: knowledge-base-service
+
+  ai-generation-service:
+    build: ./services/ai-generation-service
+    environment:
+      SERVICE_NAME: ai-generation-service
+
+  assessment-service:
+    build: ./services/assessment-service
+    environment:
+      SERVICE_NAME: assessment-service
+
+  proctoring-service:
+    build: ./services/proctoring-service
+    environment:
+      SERVICE_NAME: proctoring-service
+
+  adaptive-learning-service:
+    build: ./services/adaptive-learning-service
+    environment:
+      SERVICE_NAME: adaptive-learning-service
+
+  analytics-service:
+    build: ./services/analytics-service
+    environment:
+      SERVICE_NAME: analytics-service
+
+  reporting-service:
+    build: ./services/reporting-service
+    environment:
+      SERVICE_NAME: reporting-service
+
+  notification-service:
+    build: ./services/notification-service
+    environment:
+      SERVICE_NAME: notification-service
+
+  message-broker:
+    image: rabbitmq:3-management-alpine
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  object-storage:
+    image: minio/minio:latest
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: miniosecret
+    ports:
+      - "9000:9000"
+      - "9001:9001"

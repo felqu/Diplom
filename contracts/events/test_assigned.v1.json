@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TestAssigned v1",
+  "type": "object",
+  "required": ["event_id", "occurred_at", "assignment_id", "test_id", "assignee_id", "deadline"],
+  "properties": {
+    "event_id": { "type": "string", "format": "uuid" },
+    "occurred_at": { "type": "string", "format": "date-time" },
+    "assignment_id": { "type": "string", "format": "uuid" },
+    "test_id": { "type": "string", "format": "uuid" },
+    "assignee_id": { "type": "string", "format": "uuid" },
+    "deadline": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}
